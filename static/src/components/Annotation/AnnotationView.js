@@ -2,7 +2,10 @@ import * as React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Button } from '@material-ui/core/Button/index.js';
+import GridImport from '@material-ui/core/Grid/index.js';
+const Grid = GridImport.default
 import { withTheme } from '@material-ui/core/styles/index.js';
+
 import * as actionCreators from '../../actions/index.js';
 import TextController from './TextController.tsx'
 import LabelController from './LabelController.tsx';
@@ -471,63 +474,67 @@ class AnnotationView extends React.Component {
     const { primary, secondary } = this.props.theme.palette;
 
     return (
-      <div className="annotation-view" ref={this.setRootRef} onClick={(e) => e.preventDefault()}>
+      <div
+        className="annotation-view"
+        ref={this.setRootRef}
+        onClick={(e) => e.preventDefault()}
+        style={{flexGrow: 1}}
+      >
         <div style={{
-          height: 'calc(100% - 250px)',
           padding: 0
         }}>
-          <div className="col-md-8" style={{
-            height: '100%',
-            padding: 0
-          }}>
-            <TextController
-              text={this.state.text}
-              colormap={this.state.colormap}
-              annotations={this.state.annotations}
-              selectedAnnotationId={this.state.selectedAnnotationId}
-              onAnnotationCreationToken={this.onAnnotationCreationToken}
-              onAnnotationSelection={this.onAnnotationSelection}
-              onSuggestionUpdate={this.onSuggestionUpdate}
-              onTextSelection={this.onTextSelection}
-              addLogEntryBound={this.addLogEntryBound}
-            />
-          </div>
-          <div className="col-md-4" style={{
-            height: '100%',
-            padding: 0
-          }}>
-            <LabelController
-              selectedText={this.state.selectedText}
-              searchedLabels={this.state.searchedLabels}
-              selectedLabels={this.state.selectedLabels}
-              colormap={this.state.colormap}
-              searchMode={this.state.searchMode}
-              CUIMode={this.state.CUIMode}
-              onTextSelection={this.onTextSelection}
-              onEnterPress={this.onSearchEnterPress}
-              onCUIModeChange={this.onCUIModeChange}
-              setSelectedLabels={this.setSelectedLabels}
-              deleteAnnotation={this.deleteAnnotation}
-              onUMLSClick={this.onUMLSClick}
-              UMLSInfo={this.state.UMLSInfo}
-              addLogEntryBound={this.addLogEntryBound}
-            />
-          </div>
+          <Grid container spacing={10} md={12}>
+            <Grid item md={8} zeroMinWidth>
+              <TextController
+                text={this.state.text}
+                colormap={this.state.colormap}
+                annotations={this.state.annotations}
+                selectedAnnotationId={this.state.selectedAnnotationId}
+                onAnnotationCreationToken={this.onAnnotationCreationToken}
+                onAnnotationSelection={this.onAnnotationSelection}
+                onSuggestionUpdate={this.onSuggestionUpdate}
+                onTextSelection={this.onTextSelection}
+                addLogEntryBound={this.addLogEntryBound}
+              />
+            </Grid>
+            <Grid item md={4} zeroMinWidth>
+              <LabelController
+                selectedText={this.state.selectedText}
+                searchedLabels={this.state.searchedLabels}
+                selectedLabels={this.state.selectedLabels}
+                colormap={this.state.colormap}
+                searchMode={this.state.searchMode}
+                CUIMode={this.state.CUIMode}
+                onTextSelection={this.onTextSelection}
+                onEnterPress={this.onSearchEnterPress}
+                onCUIModeChange={this.onCUIModeChange}
+                setSelectedLabels={this.setSelectedLabels}
+                deleteAnnotation={this.deleteAnnotation}
+                onUMLSClick={this.onUMLSClick}
+                UMLSInfo={this.state.UMLSInfo}
+                addLogEntryBound={this.addLogEntryBound}
+              />
+            </Grid>
+          </Grid>
         </div>
         <div style={{ height: 100 }}>
-          <Selection
-            selectedText={this.state.selectedText}
-            selectedLabels={this.state.selectedLabels}
-            colormap={this.state.colormap}
-            CUIMode={this.state.CUIMode}
-            onCUIModeChange={this.onCUIModeChange}
-            onTextSelection={this.onTextSelection}
-            setSelectedLabels={this.setSelectedLabels}
-            deleteAnnotation={this.deleteAnnotation}
-            onUMLSClick={this.onUMLSClick}
-            UMLSInfo={this.state.UMLSInfo}
-            addLogEntryBound={this.addLogEntryBound}
-          />
+          <Grid container spacing={10}>
+            <Grid item md={12}>
+              <Selection
+                selectedText={this.state.selectedText}
+                selectedLabels={this.state.selectedLabels}
+                colormap={this.state.colormap}
+                CUIMode={this.state.CUIMode}
+                onCUIModeChange={this.onCUIModeChange}
+                onTextSelection={this.onTextSelection}
+                setSelectedLabels={this.setSelectedLabels}
+                deleteAnnotation={this.deleteAnnotation}
+                onUMLSClick={this.onUMLSClick}
+                UMLSInfo={this.state.UMLSInfo}
+                addLogEntryBound={this.addLogEntryBound}
+              />
+            </Grid>
+          </Grid>
         </div>
       </div>
     );

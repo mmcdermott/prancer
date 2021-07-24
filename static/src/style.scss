@@ -79,12 +79,10 @@
 }
 
 .text-controller {
-  position: absolute;
   margin: 20px 0 0;
   padding: 50px 25px 25px;
   background-color: #f9f9f9;
   border: 1px solid #dddddd;
-  height: 100%;
   width: 100%;
   min-height: 200px;
   overflow-y: scroll;
@@ -92,7 +90,6 @@
 
 .label-controller {
   margin: 20px 0 0;
-  height: 100%;
 }
 
 .bordered-section {
@@ -177,7 +174,7 @@
 }
 
 .selection-main {
-  width: calc(100% - 48px);
+  width: 80%;
   padding: 0 20px;
   display: flex;
   float: left;

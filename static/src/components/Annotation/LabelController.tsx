@@ -178,7 +178,7 @@ class LabelController extends React.Component<LabelControllerProps, LabelControl
 
     return (
       <div className="label-controller">
-        <div className="bordered-section divided-section" style={{ height: '100%' }}>
+        <div className="bordered-section divided-section">
           <div style={{ paddingBottom: 20, overflow: 'hidden' }}>
             <div style={{ width: '100%' }}>
               <SearchBar
