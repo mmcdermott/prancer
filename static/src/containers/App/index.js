@@ -75,7 +75,7 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
                     />
                     <div
                       className="container"
-                      style={{ marginTop: 10, paddingBottom: 20 }}
+                      style={{ marginTop: 10, paddingBottom: 20, height: 'fill-content' }}
                     >
                         {this.props.children}
                     </div>

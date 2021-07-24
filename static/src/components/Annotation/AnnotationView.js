@@ -483,7 +483,7 @@ class AnnotationView extends React.Component {
         <div style={{
           padding: 0
         }}>
-          <Grid container spacing={10} md={12}>
+          <Grid container spacing={10} md={12} style={{marginLeft: "0", marginRight: "0"}}>
             <Grid item md={8} zeroMinWidth>
               <TextController
                 text={this.state.text}
@@ -517,7 +517,7 @@ class AnnotationView extends React.Component {
             </Grid>
           </Grid>
         </div>
-        <div style={{ height: 100 }}>
+        <div>
           <Grid container spacing={10}>
             <Grid item md={12}>
               <Selection

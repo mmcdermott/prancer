@@ -61,7 +61,9 @@
 }
 
 .annotation-view {
-  height: 100%;
+  height: fit-content;
+  margin-left: 7%;
+  margin-right:7%;
 }
 
 .experiment-modal {
@@ -85,6 +87,7 @@
   border: 1px solid #dddddd;
   width: 100%;
   min-height: 200px;
+  max-height: 40em;
   overflow-y: scroll;
 }
 
